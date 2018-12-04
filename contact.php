@@ -1,45 +1,29 @@
 <?php
-
-
-
 if ($_POST["submit"]) {
 
-
 	if (!$_POST['name']) {
-
-
 
 		$error = "<br />Please enter your name";
 
 	}
 
-
 	if (!$_POST['email']) {
-
 
 		$error .= "<br />Please enter your email address";
 
-
 	}
 
-
 	if (!$_POST['phone']) {
-
 
 		$error .= "<br /> Please enter your phone number";
 
 	}
 
-
-
 	if (!$_POST['message']) {
-
 
 		$error .= "<br />Please enter a message";
 
-
 	}
-
 
 	if ($_POST['email'] != "" and !filter_var(
 		$_POST['email'],
@@ -53,31 +37,24 @@ if ($_POST["submit"]) {
 
 	if ($error) {
 
-
-
 		$result = '<div class="alert alert-danger"><strong>There were error(s)
 
 in your form:</strong>' . $error . '</div>';
 
-
-
 	} else {
 
-
-
 		if (mail(
-			"info@yourdomain.com",
+			"info@orangecirclecompany.com",
 			"Message from Your Website Name",
 /*This is the email where you will receive the contact form messages */
 
-
 			"Name: " . $_POST['name'] . "
 
-Email: " . $_POST['email'] . "
+			Email: " . $_POST['email'] . "
 
-Phone: " . $_POST['phone'] . "
+			Phone: " . $_POST['phone'] . "
 
-Message: " . $_POST['message']
+			Message: " . $_POST['message']
 		)) {
 
 			$result = '<div class="alert alert-success"> <strong> Thank
@@ -95,5 +72,4 @@ an error sending your message. Please try again later.</div>';
 	}
 
 }
-
 ?>
